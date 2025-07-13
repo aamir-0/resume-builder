@@ -1,0 +1,171 @@
+:root {
+    --primary-color: #2E2E2E;
+    --secondary-color: #1F1F1F;
+    --text-color: #E0E0E0;
+    --secondary-text-color: #A0A0A0;
+    --background-color: #121212;
+    --accent: #4EA8DE;
+    --font-family: 'Arial', sans-serif;
+    --input-background: #2A2A2A;
+    --input-border: #444;
+    --button-hover: #2563EB;
+
+    /* layout vars */
+    --header-height: 10vh;
+    --sidebar-width: 20vw;
+    --spacing-sm: 0.5rem;
+    --spacing-lg: 1.5rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-y: scroll;
+    height: auto;
+}
+button{
+background-color: var(--accent);
+}
+
+.header_bar{
+display:flex;
+flex-direction:row;
+align-items:center;
+height:var(--header-height);
+background-color: var(--secondary-color);
+position: fixed;
+top:0;
+left:0;
+width: 100%;
+justify-content: space-between;
+}
+.header_bar button{
+font-size: larger;
+margin:auto 20px;
+border-radius: 5px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 20px; /* Add some spacing */
+}
+
+.side_bar{
+display:flex;
+flex-direction: column;
+width: var(--sidebar-width);
+ height: calc(100vh - var(--header-height));
+background-color: var(--secondary-color);
+position: fixed;
+top: var(--header-height);
+left:0;
+}
+
+.side_bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.side_bar li {
+    padding: var(--spacing-sm);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+.side_bar li:hover {
+    background-color: var(--primary-color);
+}
+.side_bar li i {
+    margin-right: var(--spacing-sm);
+    width: 34px; /* Adjust icon size */
+    height: 34px; /* Adjust icon size */
+}
+@media (max-width: 768px) {
+    .side_bar {
+        width: 80px; /* A bit more space for icons */
+        align-items: center;
+    }
+
+    .side_bar li {
+        justify-content: center;
+    }
+
+    .side_bar li i {
+        margin-right: 0;
+        width: 28px;
+        height: 28px;
+    }
+
+    .side_bar li span {
+        display: none; /* Hide text to focus on icons */
+    }
+
+    /* This is the missing part: adjust the main container */
+    .main_container {
+        margin-left: 80px;
+        width: calc(100% - 80px);
+    }
+}
+
+
+.main_container{
+margin-top: var(--header-height);
+margin-left: var(--sidebar-width);
+width: calc(100% - var(--sidebar-width));
+min-height: calc(100vh - var(--header-height));
+display: flex;
+flex-direction: column;
+background-color: var(--background-color);
+padding: var(--spacing-lg);
+padding-bottom: 2rem;
+}
+.header_bar h1, .header_bar nav {
+    margin: 0 20px;
+}
+.main_container label {
+  color:var(--secondary-text-color);
+}
+.main_container h2 {
+  color: #FFFFFF;
+}
+.main_container input, .main_container select ,.main_container textarea {
+  background-color: var(--input-background);
+  color: var(--text-color);
+  border: 	var(--input-border) solid 1px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.main_container .group_form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* if you wanted label + input on one line at >=800px */
+@media (min-width: 800px) {
+  .main_container .group_form {
+    flex-direction: row;
+    align-items: center;
+  }
+  .main_container .group_form label {
+    width: 25%;      /* or whatever fixed label width you prefer */
+    margin-right: var(--spacing-sm);
+  }
+  .main_container .group_form input,
+  .main_container .group_form textarea {
+    width: 75%;
+  }
+}
+
+

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles\index.css">
+  
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <title>Resume Buider</title>
+</head>
+<body>
+    
+        <div class="header_bar">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 10px;">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#4EA8DE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20" stroke="#4EA8DE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 18C13.1046 18 14 17.1046 14 16C14 14.8954 13.1046 14 12 14C10.8954 14 10 14.8954 10 16C10 17.1046 10.8954 18 12 18Z" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 12.5V14" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 18V19.5" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.475 13.525L13.414 14.586" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.586 17.414L9.525 18.475" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.5 16H14" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 16H8.5" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.475 18.475L13.414 17.414" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.586 14.586L9.525 13.525" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>ResumeBuilder</span>
+            </div>
+            <div class="auth">
+                <button id="login-btn">Login</button>
+            </div>
+        </div>
+    
+
+ <aside class="side_bar">
+  <ul>
+    <li class="btn1">
+      <i class="personal_i"><lottie-player
+        src="icons/icons8-name-tag.json"
+         background="transparent"
+     
+         
+    ></lottie-player>
+      </i>
+      <span >Personal</span>
+    </li>
+
+
+    <li class="btn2">
+      <i ><lottie-player
+    src="icons/icons8-literature.json"  
+    background="transparent"
+    speed="1"
+    loop
+    >
+  </lottie-player></i>
+      <span>Education</span>
+    </li>
+
+
+    <li class="btn3">
+      <i class="experience_i"><lottie-player src="icons/icons8-briefcase.json"></lottie-player></i>
+      <span>Experience</span>
+    </li>
+
+
+    <li class="btn4">
+      <i class="project_i"><lottie-player src="icons/icons8-project.json"></lottie-player></i>
+      <span>Projects</span>
+    </li>
+
+
+    <li class="btn5">
+      <i class="skill_i"><lottie-player src="icons/icons8-skills.json"></lottie-player></i>
+      <span>Skills</span>
+    </li>
+
+
+    <li class="btn6">
+      <i class="award_i"><lottie-player src="icons/icons8-trophy.json"></lottie-player></i>
+      <span>Achievements</span>
+    </li>
+
+
+  </ul>
+</aside>
+    <div class="main_container">
+        <section class="personal_info">
+             <h2>Personal Information</h2>
+            <div class="group_form">
+            <label for="name">Full Name</label>
+            <input id="name" class="name" type="text">
+            </div>
+
+            <div class="group_form">
+            <label for="email">Email</label>
+            <input id="email" class="email" type="email">
+            </div>
+
+            <div class="group_form">
+            <label for="phone_no">Phone Number</label>
+            <input id="phone_no" class="phone_no" type="tel">
+            </div>
+
+            <div class="group_form">
+            <label for="address">Address</label>
+            <input id="address" class="address" type="text">
+            </div>
+           
+            <div class="group_form">
+            <label for="linkedin">LinkedIn</label>
+            <input  class="linkedin" type="url">
+            </div>
+
+            <div class="group_form">
+            <label for="github">GitHub</label>
+            <input  class="github" type="url">
+            </div>
+
+            <div class="group_form">
+            <label for="portfolio">Portfolio</label>
+            <input class="portfolio" type="url">
+            </div>
+        </section>
+        
+        <section class="education">
+            <h2>Education</h2>
+            <div class="group_form">
+                <label for="school_name">University Name</label>
+                <input id="school_name" class="school_name" type="text">
+            </div>
+
+            <div class="group_form">
+                <label for="degree">Degree</label>
+                <input id="degree" class="degree" type="text">
+            </div>
+
+            <div class="group_form">
+                <label for="field_of_study">Field of Study</label>
+                <input id="field_of_study" class="field_of_study" type="text">
+            </div>
+
+            <div class="group_form">
+                <label for="graduation_year">Graduation Year</label>
+                <input id="graduation_year" class="graduation_year" type="number">
+            </div>
+
+            <div class="group_form">
+                <label for="gpa">GPA (Optional)</label>
+                <input id="gpa" class="gpa" type="text">
+            </div>
+        </section>
+
+        <section class="work_exp">
+            <h2>Work Experience</h2>
+            <div class="group_form">
+                <label for="company_name">Company Name</label>
+                <input id="company_name" class="company_name" type="text">
+            </div>
+
+            <div class="group_form">
+                <label for="job_title">Job Title</label>
+                <input id="job_title" class="job_title" type="text">
+            </div>
+
+            <div class="group_form">
+                <label for="start_date">Start Date</label>
+                <input id="start_date" class="start_date" type="date">
+            </div>
+
+            <div class="group_form">
+                <label for="end_date">End Date</label>
+                <input id="end_date" class="end_date" type="date">
+            </div>
+
+            <div class="group_form">
+                <label for="job_description">Job Description</label>
+                <textarea id="job_description" class="job_description" rows="4"></textarea>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="group_form">
+                <label for="project_name">Project Name</label>
+                <input id="project_name" class="project_name" type="text">
+            </div>
+
+            <div class="group_form">
+                <label for="project_description">Project Description</label>
+                <textarea id="project_description" class="project_description" rows="3"></textarea>
+            </div>
+
+            <div class="group_form">
+                <label for="technologies_used">Technologies Used</label>
+                <input id="technologies_used" class="technologies_used" type="text">
+            </div>
+
+            <div class="group_form">
+                <label for="project_url">Project URL</label>
+                <input id="project_url" class="project_url" type="url">
+            </div>
+
+            <div class="group_form">
+                <label for="project_github">GitHub Repository</label>
+                <input id="project_github" class="project_github" type="url">
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <div class="group_form">
+                <label for="technical_skills">Technical Skills</label>
+                <textarea id="technical_skills" class="technical_skills" rows="3" placeholder="e.g., JavaScript, Python, React, SQL"></textarea>
+            </div>
+
+            <div class="group_form">
+                <label for="soft_skills">Soft Skills</label>
+                <textarea id="soft_skills" class="soft_skills" rows="3" placeholder="e.g., Communication, Leadership, Problem Solving"></textarea>
+            </div>
+
+            <div class="group_form">
+                <label for="languages">Languages</label>
+                <input id="languages" class="languages" type="text" placeholder="e.g., English (Native), Spanish (Fluent)">
+            </div>
+
+            <div class="group_form">
+                <label for="certifications">Certifications</label>
+                <textarea id="certifications" class="certifications" rows="3" placeholder="e.g., AWS Certified, Google Analytics"></textarea>
+            </div>
+        </section>
+
+        <section class="achivments">
+            <h2>Achievements</h2>
+            <div class="group_form">
+                <label for="awards">Awards & Honors</label>
+                <textarea id="awards" class="awards" rows="3" placeholder="e.g., Dean's List, Employee of the Month"></textarea>
+            </div>
+
+            <div class="group_form">
+                <label for="publications">Publications</label>
+                <textarea id="publications" class="publications" rows="3" placeholder="e.g., Research papers, Articles"></textarea>
+            </div>
+
+            <div class="group_form">
+                <label for="volunteer_work">Volunteer Work</label>
+                <textarea id="volunteer_work" class="volunteer_work" rows="3" placeholder="e.g., Community service, Non-profit work"></textarea>
+            </div>
+
+            <div class="group_form">
+                <label for="other_achievements">Other Achievements</label>
+                <textarea id="other_achievements" class="other_achievements" rows="3" placeholder="e.g., Competitions won, Leadership roles"></textarea>
+            </div>
+        </section>
+    </div>
+    <script src="/scripts/index.js"></script>
+</body>
+</html>
