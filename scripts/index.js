@@ -1,181 +1,168 @@
 import { userData } from '../data/user_data.js';
+import {intanimation} from './animation.js';
+import {setupInputHandlers} from './inputhandler.js';
+import { saveToLocalStorage, loadFromLocalStorage ,populateFormFields} from './storage.js';
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     // to get all lottie-player elements in the sidebar
-    const lottieAnimations = document.querySelectorAll('.side_bar lottie-player');
-    
-//loop through all LA in sidebar
-    lottieAnimations.forEach(animation => {
-        const parentLi = animation.closest('li');
-        
-        // Start animation on of li
-        parentLi.addEventListener('mouseenter', () => {
-            animation.play();
-        });
+     intanimation();
 
-       //animation on click for mobile devices
-        parentLi.addEventListener('click', () => {
-            
-            animation.stop();
-            animation.play();
-        });
-    
-
-        // Stop animation when hover ends
-        parentLi.addEventListener('mouseleave', () => {
-            animation.stop();
-        });
-        
-       
-    });
-    
-    console.log('Lottie hover animations initialized');
-
-
-    function setupInputHandlers() {
-        // Defined input mappings for each section
-        const inputMappings = {
-            
-            personal_info: {
-                '.js_name': 'name',
-                '.js_email': 'email', 
-                '.js_phone_no': 'phone_no',
-                '.address_js': 'address',
-                '.linkedin': 'linkedin',
-                '.github': 'github',
-                '.portfolio': 'portfolio'
-            },
-            
-           
-            education: {
-                '.school_name': 'school_name',
-                '.degree': 'degree',
-                '.field_of_study': 'field_of_study',
-                '.graduation_year': 'graduation_year',
-                '.gpa': 'gpa'
-            },
-            
-       
-            work_experience: {
-                '.company_name': 'company_name',
-                '.job_title': 'job_title',
-                '.start_date': 'start_date',
-                '.end_date': 'end_date',
-                '.job_description': 'job_description'
-            },
-            
-            
-            projects: {
-                '.project_name': 'project_name',
-                '.project_description': 'project_description',
-                '.technologies_used': 'technologies_used',
-                '.project_url': 'project_url',
-                '.project_github': 'project_github'
-            },
-
-
-            skills:{
-                '.technical_skills':'',
-                '.soft_skills':'soft_skills',
-                '.languages':'languages',
-                '.certifications':'certifications'
-            },
-
-            achievements: {
-                '.awards': 'awards',
-                '.publications': 'publications',
-                '.volunteer_work': 'volunteer_work'
-                }
-        };
-
-        // Setup personal_info object in user_data arr for inputs 
-        Object.entries(inputMappings.personal_info).forEach(([selector, property]) => {
-            const input = document.querySelector(selector);
-            if (input) {
-                input.addEventListener('input', function() {
-                    userData.personal_info[property] = this.value;//this.value gets the value of the input field(whatever user types)
-                    
-                });
-            }
-        });
-
-        // Setup education inputs 
-        Object.entries(inputMappings.education).forEach(([selector, property]) => {
-            const input = document.querySelector(selector);
-            if (input) {
-                input.addEventListener('input', function() {
-                    // Initialize first education entry if it doesn't exist
-                    if (!userData.education[0]) {
-                        userData.education[0] = {};
-                    }
-                    userData.education[0][property] = this.value;
-                    
-                });
-            }
-        });
-
-        // Setup work experience inputs
-        Object.entries(inputMappings.work_experience).forEach(([selector, property]) => {
-            const input = document.querySelector(selector);
-            if (input) {
-                input.addEventListener('input', function() {
-                    if (!userData.work_experience[0]) {
-                        userData.work_experience[0] = {};
-                    }
-                    userData.work_experience[0][property] = this.value;
-                    
-                });
-            }
-        });
-
-        // Setup project inputs 
-        Object.entries(inputMappings.projects).forEach(([selector, property]) => {
-            const input = document.querySelector(selector);
-            if (input) {
-                input.addEventListener('input', function() {
-                    if (!userData.projects[0]) {
-                        userData.projects[0] = {};
-                    }
-                    userData.projects[0][property] = this.value;
-                    
-                });
-            }
-        });
-
-//setup skills inputs
-        Object.entries(inputMappings.skills).forEach(([selector, property]) => {
-            const input = document.querySelector(selector);
-            if(input){
-                input.addEventListener('input', function() {
-                    userData.skills[0][property] = this.value;  
-                });
-            }
-        })
-
-        // Setup achievements inputs
-        Object.entries(inputMappings.achievements).forEach(([selector, property]) => {
-            const input = document.querySelector(selector);
-            if(input){
-                input.addEventListener('input', function() {
-                   
-                    if (!userData.achievements) {
-                        userData.achievements = {};
-                    }
-                    if (!userData.achievements[property]) {
-                        userData.achievements[property] = [];
-                    }
-                    userData.achievements[property].push(this.value); //should i use array or object?
-                });
-            }
-        })
-
-        console.log('All input handlers initialized');
-    }
 
     // Call the function to initialize input handlers
     setupInputHandlers();
-});
 
-if(userData){
-console.log('User data initialized:', userData);
-}
+     saveToLocalStorage()
+        
+
+    document.querySelector('.save_js').addEventListener('click', function() {
+        // Convert userData to JSON and save it
+       saveToLocalStorage();
+    });//end of save button click event
+
+        function populateFormFields(data) {
+        // Personal info
+        if (data.personal_info) {
+            Object.entries(data.personal_info).forEach(([key, value]) => {
+                const input = document.querySelector(`.${key}`) || document.querySelector(`.js_${key}`);
+                if (input && value) {
+                    input.value = value;
+                }
+            });
+        }
+
+        // Education
+        if (data.education && data.education.length > 0) {
+            Object.entries(data.education[0]).forEach(([key, value]) => {
+                const input = document.querySelector(`.${key}`);
+                if (input && value) {
+                    input.value = value;
+                }
+            });
+        }
+        // Work Experience
+        if (data.work_experience && data.work_experience.length > 0) {
+            Object.entries(data.work_experience[0]).forEach(([key, value]) => {
+                const input = document.querySelector(`.${key}`);
+                if (input && value) {
+                    input.value = value;
+                }
+            });
+        }
+        // Projects
+        if (data.projects && data.projects.length > 0) {
+            Object.entries(data.projects[0]).forEach(([key, value]) => {
+                const input = document.querySelector(`.${key}`);
+                if (input && value) {
+                    input.value = value;
+                }
+            });
+        }
+        // Skills
+        if (data.skills && data.skills.length > 0) {
+            Object.entries(data.skills[0]).forEach(([key, value]) => {
+                const input = document.querySelector(`.${key}`);
+                if (input && value) {
+                    input.value = value;
+                }
+            });
+        }
+        // Achievements
+        if (data.achievements) {
+            Object.entries(data.achievements).forEach(([key, values]) => {
+                const input = document.querySelector(`.${key}`);
+                if (input && Array.isArray(values)) {
+                    input.value = values.join(', '); // Join array values with a comma
+                }
+            });
+        }
+    }
+
+
+    function loadFromLocalStorage(){
+        try{
+        const resumeString=localStorage.getItem('resumeData');
+        const parseString=JSON.parse(resumeString);
+        populateFormFields(parseString);
+        }catch{
+            console.error('some error occured while loading the data')
+        }
+    }
+
+      function generateResume() {
+      const docDefinition = {
+        content: [
+          { text: userData.personal_info.name, style: 'header' },
+          { text: `${userData.personal_info.email} | ${userData.personal_info.phone_no} | ${userData.personal_info.address}`, style: 'subheader' },
+          { text: `${userData.personal_info.linkedin} | ${userData.personal_info.github} | ${userData.personal_info.portfolio}`, style: 'subheader' },
+          { text: '\nEducation', style: 'sectionHeader' },
+          ...userData.education.map(edu => ({
+            margin: [0, 2],
+            ul: [
+              `${edu.degree} in ${edu.field_of_study} - ${edu.school_name} (${edu.graduation_year})`,
+              `GPA: ${edu.gpa}`
+            ]
+          })),
+          { text: '\nWork Experience', style: 'sectionHeader' },
+          ...userData.work_experience.map(exp => ({
+            margin: [0, 2],
+            ul: [
+              `${exp.job_title} at ${exp.company_name} (${exp.start_date} – ${exp.end_date})`,
+              exp.job_description
+            ]
+          })),
+          { text: '\nProjects', style: 'sectionHeader' },
+          ...userData.projects.map(proj => ({
+            margin: [0, 2],
+            ul: [
+              `${proj.project_name}: ${proj.project_description}`,
+              `Technologies: ${proj.technologies_used}`,
+              `Live: ${proj.project_url}`,
+              `GitHub: ${proj.project_github}`
+            ]
+          })),
+          { text: '\nSkills', style: 'sectionHeader' },
+          ...userData.skills.map(skill => ({
+            margin: [0, 2],
+            ul: [
+              `Technical Skills: ${skill.technical_skills}`,
+              `Soft Skills: ${skill.soft_skills}`,
+              `Languages: ${skill.languages}`,
+              `Certifications: ${skill.certifications}`
+            ]
+          })),
+          { text: '\nAchievements', style: 'sectionHeader' },
+          { text: 'Awards:', bold: true },
+          { ul: userData.achievements.awards.length ? userData.achievements.awards : ['-'] },
+          { text: 'Publications:', bold: true },
+          { ul: userData.achievements.publications.length ? userData.achievements.publications : ['-'] },
+          { text: 'Volunteer Work:', bold: true },
+          { ul: userData.achievements.volunteer_work.length ? userData.achievements.volunteer_work : ['-'] }
+        ],
+        styles: {
+          header: {
+            fontSize: 22,
+            bold: true,
+            margin: [0, 0, 0, 10]
+          },
+          subheader: {
+            fontSize: 10,
+            margin: [0, 0, 0, 4],
+            color: '#555555'
+          },
+          sectionHeader: {
+            fontSize: 14,
+            bold: true,
+            margin: [0, 10, 0, 4],
+            decoration: 'underline'
+          }
+        }
+      };
+
+      pdfMake.createPdf(docDefinition).download("resume.pdf");
+    }
+
+    document.querySelector('.js_submit').addEventListener('click', function() {
+        // Call the function to generate the resume
+        generateResume();
+    });
+});

@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="styles\index.css">
   
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
 
     <title>Resume Buider</title>
 </head>
@@ -87,6 +90,12 @@
       <i class="award_i"><lottie-player src="icons/icons8-trophy.json"></lottie-player></i>
       <span>Achievements</span>
     </li>
+
+     <li class="save_js">
+      <i class="award_i"><lottie-player src="icons/icons8-save-close.json"></lottie-player></i>
+      <span>Save</span>
+    </li>
+
 
 
   </ul>
@@ -259,6 +268,7 @@
                 <textarea id="other_achievements" class="other_achievements" rows="3" placeholder="e.g., Competitions won, Leadership roles"></textarea>
             </div>
         </section>
+        <div class="submit_btn_container"><button class="js_submit .submit_btn ">Submit</button></div>
     </div>
     <script type="module" src="/scripts/index.js"></script>
 </body>
