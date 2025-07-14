@@ -1,4 +1,4 @@
-const userData = {
+export const userData = {
   personal_info: {
     name: "",
     email: "",
