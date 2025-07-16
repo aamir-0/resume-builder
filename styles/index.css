@@ -176,7 +176,7 @@ padding-bottom: 2rem;
     text-align: center;
 }
 
-.submit_btn {
+.submit_btn ,.login_btn {
     background: linear-gradient(135deg, var(--accent), var(--button-hover));
     color: white;
     border: none;
@@ -189,13 +189,13 @@ padding-bottom: 2rem;
     box-shadow: 0 4px 15px rgba(78, 168, 222, 0.3);
 }
 
-.submit_btn:hover {
+.submit_btn:hover , .login_btn:hover {
     background: linear-gradient(135deg, var(--button-hover), var(--accent));
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(78, 168, 222, 0.4);
 }
 
-.submit_btn:active {
+.submit_btn:active , .login_btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 10px rgba(78, 168, 222, 0.3);
 }
