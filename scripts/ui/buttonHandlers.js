@@ -1,5 +1,4 @@
 import { saveToLocalStorage } from '../storage/localStorage.js';
-import { generateResume , generateImprovedResume } from '../pdf/pdfGenerator.js';
 import { getUserData } from '../data/userData.js';
 
 // Function to collect data directly from form fields
@@ -61,16 +60,8 @@ export function setupSubmitButton() {
             // Save to localStorage first
             saveToLocalStorage();
             
-            // Generate PDF with current user data
-            const currentUserData = getUserData();
-            
-            // Check if data is empty and collect from form fields directly
-            if (!currentUserData.personal_info.name) {
-                const formData = collectDataFromFormFields();
-                generateImprovedResume(formData);
-            } else {
-                generateImprovedResume(currentUserData);
-            }
+            // TODO: Generate HTML resume template with user data
+            console.log('Ready to generate HTML template');
         });
         console.log('Submit button event added');
     } else {
