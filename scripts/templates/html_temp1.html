@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <meta charset="UTF-8" />
+  <title>{{personal_info.name}} - Resume</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12pt;
+      margin: 40px;
+      line-height: 1.5;
+      color: #000;
+    }
+    h1 {
+      font-size: 20pt;
+      margin-bottom: 5px;
+    }
+    h2 {
+      font-size: 14pt;
+      margin-top: 25px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 3px;
+    }
+    .section {
+      margin-top: 10px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>{{personal_info.name}}</h1>
+  <p>
+    {{personal_info.email}} | {{personal_info.phone_no}} | {{personal_info.address}}<br>
+    {{personal_info.linkedin}} | {{personal_info.github}} | {{personal_info.portfolio}}
+  </p>
+
+  <h2>Professional Summary</h2>
+  <p>{{personal_info.summary}}</p>
+
+  <h2>Education</h2>
+  {{#each education}}
+    <div class="section">
+      <span class="bold">{{degree}}</span>, {{field_of_study}} — {{school_name}}<br>
+      {{graduation_year}} | GPA: {{gpa}}
+    </div>
+  {{/each}}
+
+  <h2>Work Experience</h2>
+  {{#each work_experience}}
+    <div class="section">
+      <span class="bold">{{job_title}}</span> — {{company_name}}<br>
+      {{start_date}} – {{end_date}}<br>
+      <ul>
+        {{#each (split job_description) }}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
+
+  <h2>Projects</h2>
+  {{#each projects}}
+    <div class="section">
+      <span class="bold">{{project_name}}</span><br>
+      {{project_description}}<br>
+      Technologies: {{technologies_used}}<br>
+      {{#if project_url}}Live: {{project_url}}{{/if}}<br>
+      {{#if project_github}}GitHub: {{project_github}}{{/if}}
+    </div>
+  {{/each}}
+
+  <h2>Skills</h2>
+  {{#each skills}}
+    <div class="section">
+      Technical Skills: {{technical_skills}}<br>
+      Soft Skills: {{soft_skills}}<br>
+      Languages: {{languages}}<br>
+      Certifications: {{certifications}}
+    </div>
+  {{/each}}
+
+  <h2>Achievements</h2>
+  <div class="section">
+    <span class="bold">Awards:</span>
+    <ul>
+      {{#each achievements.awards}}<li>{{this}}</li>{{/each}}
+    </ul>
+
+    <span class="bold">Publications:</span>
+    <ul>
+      {{#each achievements.publications}}<li>{{this}}</li>{{/each}}
+    </ul>
+
+    <span class="bold">Volunteer Work:</span>
+    <ul>
+      {{#each achievements.volunteer_work}}<li>{{this}}</li>{{/each}}
+    </ul>
+  </div>
+
+</body>
+</html>

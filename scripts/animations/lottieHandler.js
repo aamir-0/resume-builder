@@ -1,7 +1,7 @@
 // Lottie animations functionality
 export function initializeLottieAnimations() {
     const lottieAnimations = document.querySelectorAll('.side_bar lottie-player');
-    console.log('Found', lottieAnimations.length, 'lottie animations');
+    //console.log('Found', lottieAnimations.length, 'lottie animations');
     
     lottieAnimations.forEach((animation, index) => {
         const parentLi = animation.closest('li');
@@ -9,13 +9,13 @@ export function initializeLottieAnimations() {
         if (parentLi) {
             // Hover functionality
             parentLi.addEventListener('mouseenter', () => {
-                console.log('Animation', index, 'hovered');
+               
                 animation.play();
             });
 
             // Click functionality for mobile + navigation
             parentLi.addEventListener('click', () => {
-                console.log('Animation', index, 'clicked');
+                
                 animation.stop();
                 animation.play();
 

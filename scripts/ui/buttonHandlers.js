@@ -1,6 +1,7 @@
 import { saveToLocalStorage } from '../storage/localStorage.js';
 import { getUserData } from '../data/userData.js';
 
+
 // Function to collect data directly from form fields
 function collectDataFromFormFields() {
     const formData = {
@@ -59,9 +60,11 @@ export function setupSubmitButton() {
             
             // Save to localStorage first
             saveToLocalStorage();
-            
+            function resumeGenerate(){
+                
+            }
             // TODO: Generate HTML resume template with user data
-            console.log('Ready to generate HTML template');
+          
         });
         console.log('Submit button event added');
     } else {

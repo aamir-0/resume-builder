@@ -3,6 +3,7 @@ import { initializeLottieAnimations } from './animations/lottieHandler.js';
 import { setupInputHandlers } from './forms/inputHandler.js';
 import { setupSubmitButton, setupSaveButton } from './ui/buttonHandlers.js';
 import { loadFromLocalStorage } from './storage/localStorage.js';
+import { initializePreview } from './ui/previewHandler.js';  
 
 console.log('Script loaded successfully!');
 
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSubmitButton();
     setupSaveButton();
     loadFromLocalStorage();
+    initializePreview();
 
     function loadDummyData() {
         console.log('Loading dummy data into form...');
@@ -140,8 +142,9 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Dummy data loaded successfully!');
     }
 
+
+
     // Call the function to load dummy data
     loadDummyData();
     
-    console.log('Resume builder initialized with modular architecture');
 });
