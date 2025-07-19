@@ -4,13 +4,15 @@ A dynamic, modular resume builder built with **HTML**, **CSS**, and **JavaScript
 
 ## 🚀 Features
 
-* **Real-time Preview**: Opens a dedicated popup window (800×900) that updates live with debounced input from the editor.
+*   **Real-Time Preview**: Opens a dedicated popup window that updates live with debounced input from the editor, giving you instant feedback.
 
-* **Multi-Template Support**: Switch between “Professional”, “Modern Creative”, and “Executive” templates via a dropdown in the preview(only one template  functional).
+*   **Multi-Template Support**: Seamlessly switch between three distinct, professional resume templates (“Professional ATS-Friendly,” “Modern Creative,” and “Executive”) directly from the preview window.
 
-* **Export & Print**: Download a standalone HTML file or print/PDF your resume directly from the preview popup.
+*   **Export & Print**: Download your resume as a standalone HTML file or generate a high-quality PDF using the browser’s native print-to-PDF functionality.
 
-* **Data Persistence**: Auto-save and load resume data and template preferences to/from `localStorage`, ensuring your work is never lost.
+*   **Data Persistence**: Your work is automatically saved to and loaded from `localStorage`, ensuring you never lose your progress between sessions.
+
+*   **Modular & Modern JS**: Built with modern JavaScript (ES Modules), organizing code into a clean, maintainable, and scalable structure.
 
 ## 🛠️ Installation & Usage
 
@@ -39,61 +41,46 @@ A dynamic, modular resume builder built with **HTML**, **CSS**, and **JavaScript
 ## 📂 Project Structure
 
 ```
-resume builder/
-├─ data/
-│  └─ user_data.js
-├─ icons/
-│  ├─ icons8-briefcase.json
-│  ├─ icons8-eye.json
-│  ├─ icons8-literature.json
-│  ├─ icons8-name-tag.json
-│  ├─ icons8-project.json
-│  ├─ icons8-save-close.json
-│  ├─ icons8-skills.json
-│  └─ icons8-trophy.json
-├─ images/
-├─ scripts/
-│  ├─ animations/
-│  │  └─ lottieHandler.js
-│  ├─ data/
-│  │  └─ userData.js
-│  ├─ forms/
-│  │  └─ inputHandler.js
-│  ├─ pdf/
-│  │  └─ pdfGenerator.js
-│  ├─ storage/
-│  │  └─ localStorage.js
-│  ├─ templates/
-│  │  ├─ html_temp1.html
-│  │  ├─ html_temp2.html
-│  │  ├─ html_temp3.html
-│  │  └─ templates.js
-│  ├─ ui/
-│  │  ├─ buttonHandlers.js
-│  │  ├─ notifications.js
-│  │  └─ previewHandler.js
-│  ├─ animation.js
-│  ├─ index.js
-│  ├─ inputhandler.js
-│  └─ storage.js
-├─ styles/
-│  └─ index.css
-└─ index.html
-
-
+resume-builder/
+├── icons/
+│   └── *.json              # Lottie animation files
+├── images/
+│   └── ...                 # Image assets
+├── scripts/
+│   ├── animations/
+│   │   └── lottieHandler.js  # Handles Lottie animations
+│   ├── data/
+│   │   └── userData.js       # Manages the resume data object (state)
+│   ├── forms/
+│   │   └── inputHandler.js   # Binds form inputs to the data object
+│   ├── storage/
+│   │   └── localStorage.js   # Handles saving/loading to localStorage
+│   ├── templates/
+│   │   ├── html_temp1.html   # Professional ATS-Friendly Template
+│   │   ├── html_temp2.html   # Modern Creative Template
+│   │   ├── html_temp3.html   # Executive Template
+│   │   └── templates.js      # (If used for template logic)
+│   ├── ui/
+│   │   ├── buttonHandlers.js # Logic for UI buttons (save, etc.)
+│   │   ├── notifications.js  # Displays user notifications
+│   │   └── previewHandler.js # Manages the preview popup window
+│   └── index.js              # Main application entry point
+├── styles/
+│   └── index.css             # Main stylesheet
+└── index.html                # Main HTML file
 ```
 
 ## 📄 Last Changes (Current Status)
 
 > *Commit:* `leaving login button aside every thing is functional , will revisit this after learning react+backend to polish UI and integrate AI`
 
-* Login button placeholder added (functionality to be implemented later).
-* All other features are fully functional:
-
-  * Data binding, drag-and-drop, theming
-  * Preview popup with debounced updates and template switching
-  * Export HTML and print/PDF options
-  * `localStorage` persistence
+*   Login button is a placeholder for future development.
+*   All core features are fully functional:
+    *   Real-time data binding between the form and the preview.
+    *   A dynamic preview popup with debounced updates and template switching.
+    *   Export to HTML and Print-to-PDF options.
+    *   `localStorage` persistence for all resume data.
+    *   Dark theme UI with Lottie animations.
 
 ## 🔮 Future Enhancements
 
