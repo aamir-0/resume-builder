@@ -1,6 +1,6 @@
 # Resume Builder
 
-A dynamic, modular resume builder built with **HTML**, **CSS**, and **JavaScript**, featuring real-time preview, multi-template support, export/print functionality, and robust data persistence.
+A dynamic, modular resume builder built with **HTML**, **CSS**, and **JavaScript**, featuring real-time preview, multi-template support, export/print functionality, and data persistence.
 
 ## 🚀 Features
 
@@ -21,7 +21,7 @@ A dynamic, modular resume builder built with **HTML**, **CSS**, and **JavaScript
    cd resume-builder
    ```
 
-2. \*\*Open \*\***`index.html`**
+2. Open **`index.html`**
 
    * Simply open the `index.html` file in your browser.
    * No additional dependencies or build steps required.
@@ -102,6 +102,5 @@ resume builder/
 * **User Authentication**: Enable account creation, login, and multi-resume management.
 * **UI Polish**: Enhance animations, transitions, and mobile UX.
 
-## 📝 License
 
-This project is open-source under the [MIT License](LICENSE).
+
