@@ -28,8 +28,10 @@ function registerHandlebarsHelpers() {
     // Check if Handlebars is available
     if (typeof Handlebars === 'undefined') {
         console.error('Handlebars is not loaded! Make sure the CDN is included.');
-        return;
+        return false;
     }
+    
+    console.log('Registering Handlebars helpers...');
     
     // Helper to split text for bullet points
     Handlebars.registerHelper('split', function(text) {
@@ -51,13 +53,24 @@ function registerHandlebarsHelpers() {
         if (!date) return '';
         return date;
     });
+    
+    console.log('Handlebars helpers registered successfully');
+    return true;
 }
 
 export function initializePreview() {
     console.log('Initializing preview system...');
-    registerHandlebarsHelpers();
+    
+    // Wait a bit for Handlebars to load, then register helpers
+    setTimeout(() => {
+        if (registerHandlebarsHelpers()) {
+            console.log('Preview system initialized successfully');
+        } else {
+            console.error('Failed to initialize preview - Handlebars not available');
+        }
+    }, 100);
+    
     setupPreviewButton();
-    console.log('Preview system initialized successfully');
 }
 
 function setupPreviewButton() {
@@ -411,9 +424,15 @@ async function loadAndRenderTemplate() {
         
         const htmlContent = await response.text();
         const userData = getUserData();
-        console.log('User data:', userData);
 
+        // Ensure Handlebars helpers are registered before compilation
+        if (!registerHandlebarsHelpers()) {
+            throw new Error('Failed to register Handlebars helpers - Handlebars may not be loaded');
+        }
+        
+        console.log('Compiling template...');
         const template = Handlebars.compile(htmlContent);
+        console.log('Rendering template with data...');
         const renderedHTML = template(userData);
         
         // Update preview window content

@@ -61,5 +61,4 @@ export function updateUserData(section, field, value, index = 0) {
         }
         userData[section][index][field] = value;
     }
-    console.log(`${section} ${field} updated:`, value);
 }
